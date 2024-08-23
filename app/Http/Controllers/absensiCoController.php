@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\absensici;
+use App\Models\absensico;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 
-class absensiController extends Controller
+class absensiCoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = absensici::orderby('tanggal', 'asc');
+        $data = absensico::orderby('tanggal', 'asc');
         return DataTables::of($data)->addIndexColumn()->make(true);
 
-        $absensi = absensici::all();
-        return response()->json($absensi);
+        $absensico = absensico::all();
+        return response()->json($absensico);
     }
 
     /**
